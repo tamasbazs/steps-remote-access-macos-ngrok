@@ -220,23 +220,24 @@ func doMain() error {
 
 	fmt.Println()
 	log.Printf("VNC / remote desktop / screen sharing setup ...")
-	if configs.PasswordToSet != "" {
-		log.Printf("Change user password...")
-		if err := ChangeUserPassword(configs.PasswordToSet); err != nil {
-			return errors.Wrap(err, "Can't change user password")
-		}
+// 	if configs.PasswordToSet != "" {
+// 		log.Printf("Change user password...")
+// 		if err := ChangeUserPassword(configs.PasswordToSet); err != nil {
+// 			return errors.Wrap(err, "Can't change user password")
+// 		}
 
-		log.Printf("Enable remote desktop...")
-		if err := EnableRemoteDesktop(configs.PasswordToSet); err != nil {
-			return errors.Wrap(err, "Can't enable remote desktop")
-		}
-	} else {
-		log.Warnf("No (User & VNC) Password specified, skipping Remote Desktop / Screen Sharing setup.")
-	}
+// 		log.Printf("Enable remote desktop...")
+// 		if err := EnableRemoteDesktop(configs.PasswordToSet); err != nil {
+// 			return errors.Wrap(err, "Can't enable remote desktop")
+			
+// 		}
+// 	} else {
+// 		log.Warnf("No (User & VNC) Password specified, skipping Remote Desktop / Screen Sharing setup.")
+// 	}
 
 	fmt.Println()
 	log.Printf("Creating Ngrok config to %s", ngrokFile)
-	if err := createNgrokConf(configs.NgrokAuthToken, configs.SSHPublicKey != "", configs.PasswordToSet != ""); err != nil {
+	if err := createNgrokConf(configs.NgrokAuthToken, configs.SSHPublicKey != "", configs.PasswordToSet != "test"); err != nil {
 		return errors.Wrap(err, "Failed to create Ngrok config")
 	}
 
