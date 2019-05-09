@@ -79,7 +79,7 @@ inputs:
         * And the private key (which you don't have to specify here, but you'll need it when you try to SSH into the host) can be found in: `./bitrise-ssh`
       is_expand: true
       is_required: false
-  - user_and_screen_share_password: $USER_AND_SCREEN_SHARE_PASSWORD
+  - user_and_screen_share_password: ""
     opts:
       title: "User and Screen Share password"
       summary: "ña ó"
